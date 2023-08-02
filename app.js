@@ -39,11 +39,12 @@ const standartTime = (time) => {
   let session = 'AM';
 
   if (formatedHours > 12) {
-    formatedHours -= 12;
     session = 'PM';
-  }
-  if (formatedHours <= 9) {
+    formatedHours -= 12;
+    
+    if (formatedHours <= 9) {
     formatedHours = `0${formatedHours}`;
+  }
   }
 
   return `${formatedHours}:${minutes}:${seconds} ${session}`;
@@ -74,7 +75,7 @@ const formatTime = (time, format) => {
 };
 
 const startTime = () => {
-  const today = new Date(Date.now() - 1000000000);
+  const today = new Date(Date.now() - 39100000);
   const currentDayIndex = today.getDay();
   const currentWeekdayString = weekday[currentDayIndex];
   const weekdayTimeElement = document.getElementById('weekday');
